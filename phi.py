@@ -9,9 +9,13 @@ def calcFi():
 
     nums.append(sM)
 
-    return "Phi: " + str(phi)
+    return (phi)
 for i in range(45):
     if i % 15 == 0 or i == 44:
-        print(calcFi())
+        phi = calcFi()
+        print(phi)
+        if i == 44: 
+            with open("outputs/phi.txt", "w") as f:
+                f.write(str(phi))
     else:
         calcFi()
