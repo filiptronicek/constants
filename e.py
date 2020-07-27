@@ -1,7 +1,7 @@
 from tqdm import tqdm
 
 d = 1
-r = 10000000000
+r = 1_000_000_000
 
 for i in tqdm(range(r)):
     d += d/r
