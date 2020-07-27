@@ -1,2 +1,2 @@
-# constants
+# Constants
 Scripts that calculate constants
