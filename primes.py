@@ -1,4 +1,5 @@
 import atexit
+import time
 
 primes = []
 
@@ -10,8 +11,9 @@ i = 1
 try:
     while True:
         i += 1
-        for d in range(2,i):
-            if i % d == 0: break
+        for d in range(2,round(i/2)+1):
+            if i % d == 0: 
+                break
         else:
             primes.append(str(i))
             print(i)
