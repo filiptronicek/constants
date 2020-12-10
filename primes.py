@@ -4,7 +4,7 @@ import os
 primes = []
 
 def writeToFile():
-    with open("outputs/primes.txt", "w") as f:
+    with open("outputs/primes.txt", "a") as f:
         f.write('\n'.join(primes))
 
 def loadCheckPoint():
