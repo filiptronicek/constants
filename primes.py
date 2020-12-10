@@ -1,5 +1,5 @@
 import atexit
-import time, os
+import os
 
 primes = []
 
@@ -18,16 +18,37 @@ def loadCheckPoint():
 
 i = loadCheckPoint()
 
+def isPrime(n) : 
+ 
+    # Corner cases 
+    if (n <= 1) : 
+        return False
+    if (n <= 3) : 
+        return True
+ 
+    # This is checked so that we can skip 
+    # middle five numbers in below loop 
+    if (n % 2 == 0 or n % 3 == 0) : 
+        return False
+ 
+    i = 5
+    while(i * i <= n) : 
+        if (n % i == 0 or n % (i + 2) == 0) : 
+            return False
+        i = i + 6
+ 
+    return True
+
 try:
     while True:
         i += 1
-        for d in range(2,round(i/2)+1):
-            if i % d == 0: 
-                break
-        else:
+        if isPrime(i):
             primes.append(str(i))
             print(i)
-            time.sleep(0.01)
+        else:
+            if i % 1000000 == 0:
+                writeToFile()    
+        
 except KeyboardInterrupt:
     writeToFile()
 
