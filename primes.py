@@ -1,5 +1,5 @@
 import atexit
-import time
+import time, os
 
 primes = []
 
@@ -7,7 +7,17 @@ def writeToFile():
     with open("outputs/primes.txt", "w") as f:
         f.write('\n'.join(primes))
 
-i = 1
+def loadCheckPoint():
+    if os.path.exists('outputs/primes.txt'):
+        with open('outputs/primes.txt') as f:
+            for line in f:
+                pass
+            return int(line)
+    else:
+        return 1
+
+i = loadCheckPoint()
+
 try:
     while True:
         i += 1
@@ -17,6 +27,7 @@ try:
         else:
             primes.append(str(i))
             print(i)
+            time.sleep(0.01)
 except KeyboardInterrupt:
     writeToFile()
 
