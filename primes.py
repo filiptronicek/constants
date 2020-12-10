@@ -46,7 +46,7 @@ try:
             primes.append(str(i))
             print(i)
         else:
-            if i % 1000000 == 0:
+            if i % 5000000 == 0:
                 writeToFile()    
         
 except KeyboardInterrupt:
