@@ -5,6 +5,7 @@ primes = []
 
 def writeToFile():
     with open("outputs/primes.txt", "a") as f:
+        f.write("\n")
         f.write('\n'.join(primes))
 
 def loadCheckPoint():
@@ -47,7 +48,8 @@ try:
             print(i)
         else:
             if i % 5000000 == 0:
-                writeToFile()    
+                writeToFile()   
+                primes = [] 
         
 except KeyboardInterrupt:
     writeToFile()
